@@ -76,7 +76,7 @@
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">App Builder</span>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -105,6 +105,13 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
+          <v-text-field
+            v-model="firstname"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
           <v-tooltip right>
             <template v-slot:activator="{ on }">
               <v-btn :href="source" icon large target="_blank" v-on="on">
