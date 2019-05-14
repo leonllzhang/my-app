@@ -105,6 +105,15 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
+          <dnd-grid-container :layout.sync="layoutJson">
+    <dnd-grid-box :boxId="box1Id">
+        <h1>Box 1</h1>
+    </dnd-grid-box>
+    <dnd-grid-box :boxId="box2Id">
+        <h1>Box 2</h1>
+    </dnd-grid-box>
+    
+</dnd-grid-container>
           <v-text-field
             v-model="firstname"
             :rules="nameRules"
