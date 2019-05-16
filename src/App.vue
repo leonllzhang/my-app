@@ -103,40 +103,35 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <dnd-grid-container :layout.sync="layoutJson">
-    <dnd-grid-box :boxId="box1Id">
-        <h1>Box 1</h1>
-    </dnd-grid-box>
-    <dnd-grid-box :boxId="box2Id">
-        <h1>Box 2</h1>
-    </dnd-grid-box>
-    
-</dnd-grid-container>
-          <v-text-field
+                  <dnd-grid-container :layout.sync="layout">
+    <dnd-grid-box :boxId="box-a">
+        <v-text-field
             v-model="firstname"
             :rules="nameRules"
             :counter="10"
-            label="First name"
+            label="name"
             required
           ></v-text-field>
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              <v-btn :href="source" icon large target="_blank" v-on="on">
-                <v-icon large>code</v-icon>
-              </v-btn>
-            </template>
-            <span>Source</span>
-          </v-tooltip>
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              <v-btn icon large href="https://codepen.io/johnjleider/pen/EQOYVV" target="_blank" v-on="on">
-                <v-icon large>mdi-codepen</v-icon>
-              </v-btn>
-            </template>
-            <span>Codepen</span>
-          </v-tooltip>
+    </dnd-grid-box>
+    <dnd-grid-box :boxId="box2Id">
+         <v-text-field
+            v-model="name"
+            :rules="nameRules"
+            :counter="10"
+            label="secondname"
+            required
+          ></v-text-field>
+    </dnd-grid-box>
+    
+</dnd-grid-container>   
+      <v-container fluid fill-height>
+        
+         
+        
+        <v-layout justify-center align-center>     
+
+      
+
         </v-layout>
       </v-container>
     </v-content>
@@ -218,10 +213,34 @@
 </template>
 
 <script>
-  export default {
+  export default {    
     data: () => ({
       dialog: false,
-      drawer: null,
+      drawer: null,      
+      layout: [
+            {
+                id: 'box-a',
+                hidden: false,
+                pinned: false,
+                position: {
+                    x: 0,
+                    y: 0,
+                    w: 4, // Multiplier for virtual grid width
+                    h: 2 // Multiplier for virtual grid height
+            }
+            },
+            {
+                id: 'box-b',
+                hidden: false,
+                pinned: false,
+                position: {
+                    x: 4,
+                    y: 0,
+                    w: 2,
+                    h: 1
+                }
+            }
+        ],      
       items: [
         { icon: 'contacts', text: 'Contacts' },
         { icon: 'history', text: 'Frequently contacted' },
@@ -257,6 +276,19 @@
     }),
     props: {
       source: String
-    }
+    }    
   }
 </script>
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+div.dnd-grid-box{
+   background-color:beige;
+}
+</style>
