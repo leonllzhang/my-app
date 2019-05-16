@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" fixed app>
+    <v-navigation-drawer floating v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" fixed app>
       <v-list dense>
         <template v-for="item in items">
           <v-layout v-if="item.heading" :key="item.heading" row align-center>
@@ -70,10 +70,13 @@
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
-        <v-layout justify-center align-center>
+        <v-layout align-start justify-start>
           <dnd-container :layout.sync="layout">
             <dnd-box v-for="(box,i) in layout" :boxId="box.id" :key="'box '+i">
               {{box.id}}
+              <v-text-field
+            label="Regular"
+          ></v-text-field>
             </dnd-box>
           </dnd-container>
           <!-- <v-text-field v-model="firstname" :rules="nameRules" :counter="10" label="First name" required></v-text-field> -->
