@@ -69,37 +69,6 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-<<<<<<< HEAD
-                  <dnd-grid-container :layout.sync="layout">
-    <dnd-grid-box :boxId="box-a">
-        <v-text-field
-            v-model="firstname"
-            :rules="nameRules"
-            :counter="10"
-            label="name"
-            required
-          ></v-text-field>
-    </dnd-grid-box>
-    <dnd-grid-box :boxId="box2Id">
-         <v-text-field
-            v-model="name"
-            :rules="nameRules"
-            :counter="10"
-            label="secondname"
-            required
-          ></v-text-field>
-    </dnd-grid-box>
-    
-</dnd-grid-container>   
-      <v-container fluid fill-height>
-        
-         
-        
-        <v-layout justify-center align-center>     
-
-      
-
-=======
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
           <dnd-container :layout.sync="layout">
@@ -124,7 +93,6 @@
             </template>
             <span>Codepen</span>
           </v-tooltip>
->>>>>>> 65ccb9b1043292e0b8bca464cd23d6dc706f0b33
         </v-layout>
       </v-container>
     </v-content>
@@ -175,40 +143,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-  export default {    
-    data: () => ({
-      dialog: false,
-      drawer: null,      
-      layout: [
-            {
-                id: 'box-a',
-                hidden: false,
-                pinned: false,
-                position: {
-                    x: 0,
-                    y: 0,
-                    w: 4, // Multiplier for virtual grid width
-                    h: 2 // Multiplier for virtual grid height
-            }
-            },
-            {
-                id: 'box-b',
-                hidden: false,
-                pinned: false,
-                position: {
-                    x: 4,
-                    y: 0,
-                    w: 2,
-                    h: 1
-                }
-            }
-        ],      
-      items: [
-        { icon: 'contacts', text: 'Contacts' },
-        { icon: 'history', text: 'Frequently contacted' },
-        { icon: 'content_copy', text: 'Duplicates' },
-=======
   import Container from '../src/components/Container'
   import Box from '../src/components/Box'
   import '../src/assets/dnd-grid.css'
@@ -233,7 +167,6 @@
           icon: 'content_copy',
           text: 'Duplicates'
         },
->>>>>>> 65ccb9b1043292e0b8bca464cd23d6dc706f0b33
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
